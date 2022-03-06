@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Настройки</title>
+</head>
+<body>
+<div id="DATAFILE"></div>
+<div id="DATAFOLDER"></div>
+<div id="Save"></div>
+<script>
+    if (localStorage.getItem('settingsPath') !== null) {
+        dataButtonFade();
+    } else {
+        dataButtonOut();
+    }
+
+    if(localStorage.getItem('dataFolder') !== null) {
+        folderButtonFade();
+    } else {
+        folderButtonOut();
+    }
+
+    function dataButtonFade() {
+        document.getElementById('DATAFILE').innerHTML = '<link rel="stylesheet" href="../css/style.css">' +
+            '<title>Настройки</title>' +
+            '<label class="settingsLabel">Выбранный вами файл:</label>' +
+            '<p class="settingsLabel">' + localStorage.getItem('settingsPath') + '</p>' +
+            '<span id="deleteDataFile" onclick="deleteDataFile()"><img src="../img/close.png" alt="" class="delete"></span>';
+    }
+
+    function dataButtonOut() {
+        document.getElementById('DATAFILE').innerHTML = '<link rel="stylesheet" href="../css/style.css">' +
+            '<title>Настройки</title>' +
+            '<input type="file" class="dataFile" id="dataFile" accept=".csv" onchange="saveDataFile(this)"/>\n' +
+            '<label id="btnAnim" class="label2" for="dataFile">\n' +
+            '    <span class="labelForm2">Выберите файл с эталонными значениями</span>\n' +
+            '</label>';
+    }
+
+    function folderButtonFade() {
+        document.getElementById('DATAFOLDER').innerHTML = '<link rel="stylesheet" href="../css/style.css">' +
+            '<title>Настройки</title>' +
+            '<label class="settingsLabel2">Выбранный вами путь для сохранения:</label>' +
+            '<p class="settingsLabel2">' + localStorage.getItem('dataFolder') + '</p>' +
+            '<span id="deleteDataFile2" onclick="deleteDataFolder()"><img src="../img/close.png" alt="" class="delete2"></span>';
+    }
+
+    function folderButtonOut() {
+        document.getElementById('DATAFOLDER').innerHTML = '<link rel="stylesheet" href="../css/style.css">' +
+            '<title>Настройки</title>' +
+            '<input type="file" class="dataFolder" id="dataFolder"  webkitdirectory="webkitdirectory" directory="directory" multiple="multiple" onchange="saveDataFolder(this)"/>\n' +
+            '<label id="btnAnim" class="label3" for="dataFolder">\n' +
+            '    <span class="labelForm3">Выберите путь для сохранения полученного результат</span>\n' +
+            '</label>';
+    }
+
+    document.getElementById('Save').innerHTML = '<link rel="stylesheet" href="../css/style.css">' +
+        '<label id="btnAnim" class="label4" for="dataFolder" onclick="saveSettings()">\n' +
+        '    <span class="labelForm4">Сохранить</span>\n' +
+        '</label>';
+
+
+    const remote = require('electron').remote;
+
+    function saveDataFile(e) {
+        document.getElementById('DATAFILE').value = '';
+        localStorage.setItem('settingsPath', e.files[0].path);
+        dataButtonFade();
+    }
+
+    function deleteDataFile() {
+        document.getElementById('DATAFILE').value = '';
+        localStorage.removeItem('settingsPath');
+        dataButtonOut();
+    }
+
+    function saveDataFolder(e) {
+        document.getElementById('DATAFOLDER').value = '';
+        localStorage.setItem('dataFolder', e.files[0].path);
+        folderButtonFade();
+    }
+
+    function deleteDataFolder() {
+        document.getElementById('DATAFOLDER').value = '';
+        localStorage.removeItem('dataFolder');
+        folderButtonOut();
+    }
+
+    function saveSettings() {
+        remote.getCurrentWindow().close();
+    }
+</script>
+</body>
+</html>

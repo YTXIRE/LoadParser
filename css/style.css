@@ -1,0 +1,419 @@
+html {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width: 645px;
+    height: 250px;
+    position: absolute;
+    top: 68%;
+    left: 49.5%;
+    transform: translate(-50%, -49%);
+    display: table;
+}
+
+.form {
+    background: #F2F3F7;
+    width: 645px;
+    height: 200px;
+    border-radius: 40px 0 40px 0;
+    position: absolute;
+    border: 2px #ccc dashed;
+}
+
+.dataFile {
+    display: none;
+}
+
+.label {
+    width: 155px;
+    height: 38px;
+    display: flex;
+    border-radius: 50px;
+    background: linear-gradient(60deg, #EC71F5, #7178F5);
+    text-align: center;
+    position: absolute;
+    bottom: 15px;
+    cursor: pointer;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.label:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(60deg, #d06dd9, #6969d2);
+}
+
+.labelForm {
+    padding-top: 9px;
+    padding-left: 22px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.happyFile {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    z-index: 9;
+}
+
+.textData {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    font-size: 15px;
+    color: #7F7F94;
+}
+
+.arrowFile {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 8%;
+    left: 48.42%;
+    animation: arrow 0.7s infinite ease-in-out;
+}
+
+.handFile {
+    width: 20px;
+    height: 13px;
+    position: absolute;
+    top: 35%;
+    left: 53%;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #9471F5;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #9471F5;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+#switcher {
+    float: right;
+    margin-top: -40px;
+}
+
+.textSwitcher {
+    position: relative;
+    top: 6px;
+    left: -8px;
+    color: #7F7F94;
+}
+
+#clear {
+    clear: both;
+}
+
+header {
+    width: 701px;
+    height: 100px;
+    background: #494d4e;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.headerLogo {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+header p {
+    float: right;
+    color: #fff;
+    font-size: 30px;
+    margin-right: 100px;
+    position: absolute;
+    top: 12px;
+    left: 110px;
+}
+
+.pigFile {
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    top: 78px;
+    left: 240px;
+    z-index: 2;
+}
+
+@keyframes arrow {
+    50% {
+        top: 11%
+    }
+    100% {
+        top: 8%
+    }
+}
+
+.setting {
+    width: 10px;
+    height: 40px;
+    position: absolute;
+    top: 37px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.setting span:nth-child(1) {
+    display: block;
+    width: 100%;
+    height: 10px;
+    margin-bottom: 5px;
+    background: #cccccc;
+    border-radius: 5px;
+}
+
+.setting span:nth-child(2) {
+    display: block;
+    width: 100%;
+    height: 10px;
+    margin-bottom: 5px;
+    background: #cccccc;
+    border-radius: 5px;
+}
+
+.setting span:nth-child(3) {
+    display: block;
+    width: 100%;
+    height: 10px;
+    background: #cccccc;
+    border-radius: 5px;
+}
+
+.setting span:hover {
+    background: #F2F3F7;
+}
+
+.settingPath {
+    width: 90%;
+    height: 25px;
+    margin-top: 10px;
+    margin-left: 12px;
+    padding-left: 10px;
+}
+
+.settingsLabel {
+    display: block;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.settingBtn {
+    margin-left: 15px;
+}
+
+.delete {
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/close.png');
+    background-repeat: no-repeat;
+    position: relative;
+    top: -35px;
+    left: 420px;
+    display: block;
+    cursor: pointer;
+}
+
+.delete:hover {
+    top: -34px;
+    left: 421px;
+}
+
+.label2 {
+    width: 423px;
+    height: 38px;
+    display: flex;
+    border-radius: 50px;
+    background: linear-gradient(60deg, #EC71F5, #7178F5);
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.label2:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(60deg, #d06dd9, #6969d2);
+}
+
+.labelForm2 {
+    padding-top: 9px;
+    padding-left: 60px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.dataFolder{
+    display: none;
+}
+
+.label3 {
+    width: 423px;
+    height: 38px;
+    display: flex;
+    border-radius: 50px;
+    background: linear-gradient(60deg, #EC71F5, #7178F5);
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.label3:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(60deg, #d06dd9, #6969d2);
+}
+
+.labelForm3 {
+    padding-top: 9px;
+    padding-left: 22px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.delete2 {
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/close.png');
+    background-repeat: no-repeat;
+    position: relative;
+    top: -34px;
+    left: 421px;
+    display: block;
+    cursor: pointer;
+}
+
+.delete2:hover {
+    top: -34px;
+    left: 421px;
+}
+
+.settingsLabel2 {
+    display: block;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.settingBtn2 {
+    margin-left: 15px;
+}
+
+.label4 {
+    margin-top: 15px;
+    width: 155px;
+    height: 38px;
+    display: flex;
+    border-radius: 50px;
+    background: linear-gradient(60deg, #EC71F5, #7178F5);
+    text-align: center;
+    position: absolute;
+    cursor: pointer;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.label4:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(60deg, #d06dd9, #6969d2);
+}
+
+.labelForm4 {
+    padding-top: 9px;
+    padding-left: 40px;
+    color: #fff;
+    font-size: 15px;
+}
+
+#DATAFOLDER {
+    display: block;
+    width: 100%;
+    height: 70px;
+}
+
+#DATAFILE {
+    display: block;
+    width: 100%;
+    height: 70px;
+}
+
+.pigHandFile {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 80px;
+    left: 260px;
+    z-index: 999;
+    display: block;
+}

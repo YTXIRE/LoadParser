@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Обработчик </title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <img class="headerLogo" src="../img/logo.png" alt="">
+        <p>Хрю-хрю, продакшен...</p>
+        <div class="setting" onclick="openModal()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <div id="wrapper">
+        <div id="switcher">
+            <label class="textSwitcher">Расчет эталонных значений</label>
+            <label class="switch">
+                <input type="checkbox" id="switchCheckbox" onclick="CheckedSwith(this)">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div id="clear"></div>
+        <div class="form">
+            <img class="happyFile" src="../img/fileHappy.svg">
+            <img class="arrowFile" src="../img/arrow.svg">
+            <img class="handFile" src="../img/hand.gif">
+            <img class="pigFile" src="../img/pig.svg">
+            <img class="pigHandFile" src="../img/pigHand.gif">
+            <p class="textData">Выберите файл с данными</p>
+            <input type="file" class="dataFile" id="dataFile" accept=".csv" onchange="parse(this)"/>
+            <label id="btnAnim" class="label" for="dataFile">
+                <span class="labelForm">Выберите файл</span>
+            </label>
+        </div>
+    </div>
+    <script src="../js/parse.js" charset="UTF-8"></script>
+    <script src="../js/settings.js" charset="UTF-8"></script>
+    <script>
+        localStorage.setItem('CheckedSwith', true);
+        function CheckedSwith(e) {
+            localStorage.setItem('CheckedSwith', !e.checked)
+        }
+    </script>
+</body>
+</html>
